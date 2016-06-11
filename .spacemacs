@@ -272,6 +272,12 @@ Can be installed with `brew install trash', or `brew install osxutils`''."
 ;;  (global-hl-line-mode -1) ; Disable current line highlight
   (global-linum-mode)
   (linum-relative-toggle)
+  (global-set-key (kbd "M-1") "|")
+  (global-set-key (kbd "M-2") "@")
+  (global-set-key (kbd "M-3") "#")
+  (global-set-key (kbd "M-º") "\\")
+  (global-set-key (kbd "M-ç") "}")
+  (global-set-key (kbd "M-+") "]")
 ) ; Show line numbers by default
 
 ;; Workaround for copy-paste to/from clipboard 
