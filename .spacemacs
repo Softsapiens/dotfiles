@@ -27,16 +27,18 @@ values."
      auto-completion
      better-defaults
      emacs-lisp
-     git
-     (haskell :variables haskell-enable-ghci-ng-support t)
+     (git :variables
+          git-magit-status-fullscreen t)
+     (haskell :variables
+             haskell-enable-ghci-ng-support t)
      markdown
      html
      javascript
      github
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+             shell-default-height 30
+             shell-default-position 'bottom)
      spell-checking
      syntax-checking
      ;; version-control
@@ -272,13 +274,9 @@ Can be installed with `brew install trash', or `brew install osxutils`''."
 ;;  (global-hl-line-mode -1) ; Disable current line highlight
   (global-linum-mode)
   (linum-relative-toggle)
-  (global-set-key (kbd "M-1") "|")
-  (global-set-key (kbd "M-2") "@")
-  (global-set-key (kbd "M-3") "#")
-  (global-set-key (kbd "M-º") "\\")
-  (global-set-key (kbd "M-ç") "}")
-  (global-set-key (kbd "M-+") "]")
-) ; Show line numbers by default
+  ;; Disable right alt key as a meta key in emacs, otherwise |@[]{} chars don't work
+  (setq mac-right-option-modifier nil)
+;; Show line numbers by default
 
 ;; Workaround for copy-paste to/from clipboard 
   (defun copy-to-clipboard ()
@@ -310,10 +308,27 @@ Can be installed with `brew install trash', or `brew install osxutils`''."
     )
     (evil-leader/set-key "o y" 'copy-to-clipboard)
     (evil-leader/set-key "o p" 'paste-from-clipboard)
-  
+)
 ;; -----------------------------------------------------------------
 
 
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Ubuntu Mono" :foundry "nil" :slant normal :weight normal :height 130 :width normal))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
