@@ -18,12 +18,18 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      osx
+     (scala :variables
+            ensime-startup-notification nil
+            scala-auto-start-ensime t
+            ensime-startup-dirname (concat spacemacs-cache-directory "ensime"))
      auto-completion
      better-defaults
      emacs-lisp
@@ -32,13 +38,14 @@ values."
      (haskell :variables
              haskell-enable-ghci-ng-support t)
      markdown
+     python
      html
      javascript
      github
      ;; org
      (shell :variables
              shell-default-height 30
-             shell-default-position 'bottom)
+             shell-default-position 'right)
      spell-checking
      syntax-checking
      ;; version-control
@@ -113,8 +120,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("Iosevka"
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -247,7 +254,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '("ensime" . "melpa-stable") package-pinned-packages)
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -322,6 +331,9 @@ Can be installed with `brew install trash', or `brew install osxutils`''."
  ;; If there is more than one, they won't work right.
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(package-selected-packages
+   (quote
+    (wgrep smex ivy-hydra flyspell-correct-ivy counsel-projectile counsel swiper ivy winum unfill fuzzy csv-mode yaml-mode hide-comnt pug-mode noflet ensime sbt-mode scala-mode org goto-chg diminish yapfify uuidgen toc-org py-isort osx-dictionary org-plus-contrib org-bullets mwim livid-mode skewer-mode simple-httpd live-py-mode link-hint intero hlint-refactor helm-hoogle github-search flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-ghci column-enforce-mode undo-tree powerline spinner json-snatcher json-reformat multiple-cursors js2-mode parent-mode request haml-mode gitignore-mode pcache pkg-info epl flx highlight web-completion-data dash-functional pos-tip packed pythonic s async popup bind-key bind-map auto-complete anaconda-mode hydra git-commit tern smartparens with-editor f dash package-build evil ghc ht avy magit yasnippet company helm helm-core iedit projectile anzu haskell-mode markdown-toc leuven-theme flycheck gh marshal magit-popup zenburn-theme xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package tagedit spacemacs-theme spaceline smooth-scrolling smeargle slim-mode shm shell-pop scss-mode sass-mode reveal-in-osx-finder restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode py-yapf popwin pip-requirements persp-mode pcre2el pbcopy paradox page-break-lines osx-trash orgit open-junk-file neotree multi-term move-text monokai-theme mmm-mode markdown-mode magit-gitflow magit-gh-pulls macrostep lorem-ipsum logito linum-relative less-css-mode launchctl json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hy-mode hungry-delete hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flyspell helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag haskell-snippets google-translate golden-ratio github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav define-word cython-mode company-web company-tern company-statistics company-quickhelp company-ghc company-cabal company-anaconda coffee-mode cmm-mode clean-aindent-mode buffer-move bracketed-paste auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
