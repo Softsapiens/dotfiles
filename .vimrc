@@ -85,6 +85,8 @@ augroup END
 " Set linenumber
 :set number
 
+:set relativenumber
+
 " Status bar
 set laststatus=2
 set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]
