@@ -88,11 +88,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+alias cpdev='ssh -i ~/.ssh/id_rsa_DEV cpdev'
 alias cpaws='ssh -i ~/.ssh/id_rsa_cpaws -F ~/.ssh/ssh-cpaws.cfg dev@cp-spark-01'
 alias cpaws2='ssh -i ~/.ssh/id_rsa_cpaws -F ~/.ssh/ssh-cpaws.cfg dev@cp-spark-02'
 alias cpaws3='ssh -i ~/.ssh/id_rsa_cpaws -F ~/.ssh/ssh-cpaws.cfg dev@cp-spark-03'
 alias cpaws4='ssh -i ~/.ssh/id_rsa_cpaws -F ~/.ssh/ssh-cpaws.cfg dev@cp-spark-04'
 alias cpaws5='ssh -i ~/.ssh/id_rsa_cpaws -F ~/.ssh/ssh-cpaws.cfg dev@cp-spark-05'
+alias indalo-gl-pre='ssh -i ~/.ssh/indalo_dev_key -F ~/.ssh/ssh-pre-dev.cfg'
 
 set editing-mode vi
 set -o vi

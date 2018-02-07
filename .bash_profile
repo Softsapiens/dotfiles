@@ -14,6 +14,9 @@ export PATH="/Users/dpm/.local/bin:/Users/dpm/.cabal/bin:$PATH"
 
 alias cpaws='ssh -i ~/.ssh/id_rsa_cpaws -F ~/.ssh/ssh-cpaws.cfg dev@cp-spark-01'
 alias cpaws2='ssh -i ~/.ssh/id_rsa_cpaws -F ~/.ssh/ssh-cpaws.cfg dev@cp-spark-02'
+alias cpdev='ssh -i ~/.ssh/id_rsa_DEV cpdev'
+
+alias indalo-gl-pre='ssh -i ~/.ssh/indalo_dev_key -F ~/.ssh/ssh-pre-dev.cfg'
 
 # brew bash_completion
 # http://davidalger.com/development/bash-completion-on-os-x-with-brew/
@@ -90,3 +93,5 @@ PS1="$GREEN${USER}@${HOSTNAME%%.*}$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_CO
 set editing-mode vi
 set -o vi
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
